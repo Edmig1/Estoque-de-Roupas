@@ -29,8 +29,8 @@ def Criar_input(local,placeholder,width,height,linha,coluna):
     input.grid(row=linha, column=coluna)
     return input
 
-def Criar_btn(local,texto,comando,width,height,linha,coluna,cor):
-    btn = tk.CTkButton(local,text=texto,command=comando,width=width,height=height,fg_color=cor)
+def Criar_btn(local,texto,comando,width,height,linha,coluna):
+    btn = tk.CTkButton(local,text=texto,command=comando,width=width,height=height,)
     btn.grid(row=linha, column=coluna)
     return btn
 def Criar_check(local,texto,linha,coluna):
