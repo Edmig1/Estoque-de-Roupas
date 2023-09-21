@@ -1,4 +1,5 @@
 import customtkinter as tk
+from PIL import Image
 
 
 def CriarJanela(Titulo,Tamanho,Tipo,Redimensionar=False):
@@ -8,7 +9,6 @@ def CriarJanela(Titulo,Tamanho,Tipo,Redimensionar=False):
         janela = tk.CTkToplevel()
     elif Tipo == 3:
         janela = tk.CTkInputDialog()
-    janela = tk.CTk()
     janela.title(Titulo)
     janela.geometry(Tamanho)
     if Redimensionar !=False:
@@ -76,4 +76,9 @@ def CriarSlider(Local,Largura,Altura,Linha,Coluna):
     slider = tk.CTkSlider(Local,width=Largura,height=Altura)
     slider.grid(row=Linha, column=Coluna)
 
-lista = [1,2,3]
+def CriarImagem(Local,Largura,Altura,Linha,Coluna,Caminho):
+    image = Image.open(Caminho)
+    imagetk = tk.CTkImage(image,size=[Largura,Altura])
+    labelImage = tk.CTkLabel(Local,text=" ",image=imagetk)
+    labelImage.grid(row=Linha,column=Coluna)
+    return labelImage

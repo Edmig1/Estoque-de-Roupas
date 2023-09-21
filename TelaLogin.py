@@ -1,5 +1,4 @@
 import customtkinter as tk
-import Tela2
 from ModuloLogin import *
 
 tk.set_appearance_mode("Light")
@@ -45,5 +44,6 @@ check = CriarCheck(janela,"Lembre de mim", 7,6)
 check.configure(text_color="Black", font=("Quicksand", 16))
 check.get()
 btn1 = CriarBotao(janela, Texto="Login", Comando=Clique , Linha=8, Coluna=6, Largura=195, Altura=30)
+imagem = CriarImagem(janela, Largura=50, Altura=50, Linha=9, Coluna=6, Caminho="download.png")
 
 janela.mainloop()

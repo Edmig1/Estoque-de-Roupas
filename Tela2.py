@@ -1,6 +1,5 @@
 import customtkinter as tk
 from modulo import *
-from ModuloLogin import lista
 tk.set_appearance_mode("Light")
 tk.set_default_color_theme('themes/violet.json')
 class Produto:
