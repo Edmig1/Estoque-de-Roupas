@@ -5,7 +5,11 @@
       <excludeFolder url="file://$MODULE_DIR$/jogos" />
       <excludeFolder url="file://$MODULE_DIR$/venv" />
     </content>
+<<<<<<< HEAD
     <orderEntry type="jdk" jdkName="Python 3.11 (Estoque-de-Roupas)" jdkType="Python SDK" />
+=======
+    <orderEntry type="jdk" jdkName="Python 3.11" jdkType="Python SDK" />
+>>>>>>> d39796c54040f10bc1eb9e2e00a82f2c71840ed5
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
 </module>
