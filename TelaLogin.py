@@ -2,7 +2,7 @@ import customtkinter as tk
 from ModuloLogin import *
 
 tk.set_appearance_mode("Light")
-#tk.set_default_color_themes('themes/violet.json')
+tk.set_default_color_theme('themes/violet.json')
 
 
 def Clique():
@@ -39,11 +39,10 @@ texto1 = CriarLabel(janela, "LOGIN", 3, 0)
 texto1.grid(columnspan=12)
 texto1.configure(text_color="Black", font=("Quicksand",30))
 input1 = CriarInput(janela,Largura=200, Altura=30, Linha=5, Coluna=6, Texto="Insira seu nome")
-input2 = CriarInput(janela,Largura=200, Altura=30, Linha=6, Coluna=6, Texto="Insira sua senha")
+input2 = CriarInput(janela,Largura=200, Altura=30, Linha=6, Coluna=6, Texto="Insira sua senha",Modo="Senha")
 check = CriarCheck(janela,"Lembre de mim", 7,6)
 check.configure(text_color="Black", font=("Quicksand", 16))
 check.get()
 btn1 = CriarBotao(janela, Texto="Login", Comando=Clique , Linha=8, Coluna=6, Largura=195, Altura=30)
-imagem = CriarImagem(janela, Largura=50, Altura=50, Linha=9, Coluna=6, Caminho="download.png")
 
 janela.mainloop()
