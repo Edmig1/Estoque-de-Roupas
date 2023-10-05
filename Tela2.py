@@ -26,7 +26,7 @@ def enviar():
         label1.configure(text_color='#f0bc11')
     else:
         verificacao.append(input1.get())
-        print(len(produtos))
+        print(f'O número de itens cadastrados é: {len(produtos)}')
         label1.configure(text='Produto Adicionado Com Sucesso')
         label1.configure(text_color='lime')
 
