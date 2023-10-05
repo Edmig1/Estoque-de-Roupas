@@ -28,16 +28,27 @@ verificacao = ['camisa verde', 'calça azul', 'jacket preto']
 #functions
 
 def gerarLista(objs, frame):
+    fr = CriarFrame(frame, 0, 0, 750, 30)
+    # fr.grid(sticky="N",rowspan=3)
+    fr.configure(corner_radius=0)
+    lt = Criar_label(fr, 'Nome', 6, 1)
+    lt.grid(sticky="W")
+    lp = Criar_label(fr, 'Preço', 6, 5)
+    lp.grid(sticky="W")
+    lq = Criar_label(fr, 'Quantidade', 6, 9)
+    lq.grid(sticky="W")
     for i in range(1, len(objs)):
         fr = CriarFrame(frame, i, 0, 750, 30)
         #fr.grid(sticky="N",rowspan=3)
         fr.configure(corner_radius=0)
         lt = Criar_label(fr, objs[i].nome, 6, 1)
         lt.grid(sticky="W")
-        lp = Criar_label(fr, objs[i].preco, 6, 4)
+        lp = Criar_label(fr, objs[i].preco, 6, 5)
         lp.grid(sticky="W")
-        lq = Criar_label(fr, objs[i].qtd, 6, 6)
+        lq = Criar_label(fr, objs[i].qtd, 6, 9)
         lq.grid(sticky="W")
+
+        bntEdi = Criar_btn(fr, 'editar', 'editar', 100, 30, 6, 12)
 
 
 
@@ -51,7 +62,7 @@ hotBar = CriarFrame(janela, 4, 6, 750, 20)
 #hotbar
 pesquisa = Criar_input(hotBar, 'pesquise', 300, 20, 6, 0)
 btnName = Criar_btn(hotBar, 'nome', 'orgname', 50, 20, 6, 10)
-btnNum = Criar_btn(hotBar, 'nome', 'orgnum', 50, 20, 6, 11)
+btnNum = Criar_btn(hotBar, 'quantidade', 'orgnum', 50, 20, 6, 11)
 
 gerarLista(produtos, lista)
 #grid config -------------------------
