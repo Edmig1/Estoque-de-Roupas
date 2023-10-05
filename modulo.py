@@ -46,7 +46,7 @@ def Criar_switch(local,texto,linha,coluna):
 def Criar_combo(local,width,height,lista,linha,coluna):
     combo = tk.CTkComboBox(local,width=width,height=height,values=lista, state='readonly')
     combo.grid(row=linha, column=coluna)
-    combo.set('Escolha a pessoa')
+    combo.set('Escolha o produto')
     return combo
 def Criar_barra(local,width,height,linha,coluna):
     barra = tk.CTkProgressBar(local,width=width,height=height)
