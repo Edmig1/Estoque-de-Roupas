@@ -1,5 +1,4 @@
 import customtkinter as tk
-from PIL import Image
 
 
 def CriarJanela(Titulo,Tamanho,Tipo,Redimensionar=False):
@@ -28,11 +27,21 @@ def CriarLabel(Local,Texto,Linha,Coluna):
     return label
 
 
-def CriarInput(Local,Largura, Altura,Linha,Coluna,Texto=""):
+def CriarInput(Local,Largura, Altura,Linha,Coluna,Texto="", Modo="Padrão"):
     caixa = tk.CTkEntry(Local,width=Largura,height=Altura)
     caixa.grid(row=Linha, column=Coluna)
     if Texto != "":
         caixa.configure(placeholder_text=Texto)
+    if Modo == "Senha":
+        caixa.configure(show="*")
+        def SenhaMostra():
+            global primeiro
+            if primeiro:
+                imagem_pillow = Image.open("eye.ico")
+                imageTk = Tk.CTkImage(imagem_pillow, size=[15, 15])
+                MostraSenha.configure(image=imageTk)
+                caixa.configure(show="")
+                primeiro = False
     return caixa
 
 
