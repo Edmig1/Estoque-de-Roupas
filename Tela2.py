@@ -4,7 +4,7 @@ def enviar():
     pass
 tk.set_appearance_mode("Light")
 tk.set_default_color_theme('themes/violet.json')
-janela = CriarJanela('Entrada de Produtos','854x480',2)
+janela = CriarJanela('Entrada de Produtos','1920x1080',2)
 framet2 = CriarFrame(janela,7,6,700,250)
 framet2.configure(corner_radius=25)
 framet2.configure(border_width=4,border_color='black')
