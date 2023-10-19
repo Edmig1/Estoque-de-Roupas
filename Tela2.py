@@ -1,5 +1,5 @@
 import customtkinter as tk
-
+from modulo import *
 
 tk.set_appearance_mode("Light")
 tk.set_default_color_theme('themes/violet.json')
@@ -29,8 +29,7 @@ def enviar():
         print(f'O número de itens cadastrados é: {len(produtos)}')
         label1.configure(text='Produto Adicionado Com Sucesso')
         label1.configure(text_color='lime')
-
-Janela = Criar
+janela = CriarJanela('Entrada de Produtos','1200x800','')
 janela.iconbitmap('carreco.ico')
 
 
