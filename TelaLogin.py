@@ -1,5 +1,5 @@
 import customtkinter as tk
-from ModuloLogin import *
+from modulo import *
 
 tk.set_appearance_mode("Light")
 tk.set_default_color_theme('themes/violet.json')
