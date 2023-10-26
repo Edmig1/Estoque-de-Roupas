@@ -1,14 +1,6 @@
 import customtkinter as tk
 from modulo import *
-class ClasseProduto():
-    def __init__(self,nome,preco,desc,estoque,tipo):
-        self.nome = nome
-        self.preco = preco
-        self.desc = desc
-        self.estoque = estoque
-        self.tipo = tipo
-
-
+from ClasseProdu
 ListaProdutos = []
 verificacao = []
 
@@ -17,6 +9,7 @@ def enviar():
     produto = ClasseProduto(inputt2_1.get(), inputt2_2.get(), inputt2_3.get(), inputt2_4.get(), inputt2_5.get())
     if inputt2_1.get() in verificacao:
         print(f'O produto {inputt2_1.get()} já está cadastrado')
+        print(produto.nome)
     else:
         ListaProdutos.append(produto)
         verificacao.append(inputt2_1.get())
