@@ -1,9 +1,12 @@
 import subprocess
 import time
-
 import customtkinter as tk
 from modulo import *
 from ClasseProduto import *
+
+def abrir2 ():
+    janela2.deiconify()
+
 
 ListaProdutos = []
 verificacao = []
@@ -25,7 +28,7 @@ def enviar():
 
 def open4():
     from Tela4 import abrir4
-    janela.withdraw()
+    janela2.withdraw()
     abrir4()
 
 
@@ -33,11 +36,11 @@ tk.set_appearance_mode("Light")
 
 tk.set_default_color_theme('themes/violet.json')
 
-janela = CriarJanela('Entrada de Produtos','1920x1080',1)
+janela2 = CriarJanela('Entrada de Produtos','1920x1080',2)
 
-framet2 = CriarFrame(janela,5,6,700,250)
+framet2 = CriarFrame(janela2,5,6,700,250)
 
-framet2_2 = CriarFrame(janela,0,0,1920,80)
+framet2_2 = CriarFrame(janela2,0,0,1920,80)
 
 framet2_2.configure(fg_color='#EBEBEB')
 
@@ -69,6 +72,6 @@ inputt2_5 = CriarComboBox(framet2,200,40,['Camiseta','Short','Calças','Vestidos
 
 btnt1_2 = CriarBotão(framet2,'ENVIAR',enviar,6,7,200,40)
 
-btnt2_2 = CriarBotão(janela,'Controle De Estoque',open4,9,6,200,40)
+btnt2_2 = CriarBotão(janela2,'Controle De Estoque',open4,9,6,200,40)
 
-janela.mainloop()
+janela2.mainloop()
