@@ -5,3 +5,8 @@ class ClasseProduto():
         self.desc = desc
         self.estoque = estoque
         self.tipo = tipo
+
+ListaProdutos = []
+
+def addList (dado):
+    ListaProdutos.append(dado)

@@ -1,10 +1,12 @@
+import subprocess
+import time
+
 import customtkinter as tk
 from modulo import *
 from ClasseProduto import *
 
 ListaProdutos = []
 verificacao = []
-
 def enviar():
     inputs = [inputt2_1, inputt2_2, inputt2_3, inputt2_4]
     produto = ClasseProduto(inputt2_1.get(), inputt2_2.get(), inputt2_3.get(), inputt2_4.get(), inputt2_5.get())
@@ -12,18 +14,26 @@ def enviar():
         print(f'O produto {inputt2_1.get()} já está cadastrado')
         print(produto.nome)
     else:
-        ListaProdutos.append(produto)
+        addList(produto)
         verificacao.append(inputt2_1.get())
+
+        #with open('token.txt', 'w') as file:
+            #file.write(ListaProdutos)
     for i in inputs:
         i.delete(0,'end')
     inputt2_5.set('Categoria')
+
+def open4():
+    from Tela4 import abrir4
+    janela.withdraw()
+    abrir4()
 
 
 tk.set_appearance_mode("Light")
 
 tk.set_default_color_theme('themes/violet.json')
 
-janela = CriarJanela('Entrada de Produtos','1920x1080',2)
+janela = CriarJanela('Entrada de Produtos','1920x1080',1)
 
 framet2 = CriarFrame(janela,5,6,700,250)
 
@@ -59,6 +69,6 @@ inputt2_5 = CriarComboBox(framet2,200,40,['Camiseta','Short','Calças','Vestidos
 
 btnt1_2 = CriarBotão(framet2,'ENVIAR',enviar,6,7,200,40)
 
-btnt2_2 = CriarBotão(janela,'Controle De Estoque',enviar,9,6,200,40)
+btnt2_2 = CriarBotão(janela,'Controle De Estoque',open4,9,6,200,40)
 
 janela.mainloop()

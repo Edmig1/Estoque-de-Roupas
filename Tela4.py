@@ -1,44 +1,32 @@
-import customtkinter as tk
 from modulo import *
+from ClasseProduto import *
 
 tk.set_appearance_mode("Light")
 #tk.set_default_color_theme('themes/violet.json')
 
-#----------------------------------------------------------------
-produtos = []
-verificacao = []
+def abrir4 ():
+    janela4.deiconify()
 
-class Produto:
-    def __init__(self,nome, categoria, descricao,preco,qtd):
-        self.nome = nome
-        self.preco = preco
-        self.qtd = int(qtd)
-        self.descricao = descricao
-        self.categoria = categoria
-
-camisa = Produto('camisa verde', 'camisa', 'camisa verde', 10.00, 10)
-
-produtos.append(camisa)
-
-verificacao = ['camisa verde']
 
 #-----------------------------------------------------------------
 #functions
 def fresh (lista):
-    for obj in produtos:
+    for obj in lista:
         card = CriarFrame(conteudo, 0, 0, larg - 60, 50)
         card.configure(fg_color=backColor)
 
         status = CriarFrame(card, 6, 0, 15, 15)
         status.configure(corner_radius=100)
 
-        if obj.qtd <= 0:
+        if float(obj.estoque) <= 0:
             status.configure(fg_color='red')
         else:
             status.configure(fg_color='green')
 
-        match obj.categoria:
-            case 'camisa':
+        match obj.tipo:
+            case 'camiseta':
+                image = 'camisa.png'
+            case _:
                 image = 'camisa.png'
 
         im = CriarImagem(card, f'img/{image}',6, 1, 45, 45)
@@ -52,7 +40,7 @@ def fresh (lista):
         division.configure(fg_color='#8259DC')
         division.grid(sticky='w')
 
-        categoria = CriarLabel(card, obj.categoria, 6, 4)
+        categoria = CriarLabel(card, obj.tipo, 6, 4)
         categoria.configure(font=('inter', 18))
         categoria.grid(sticky='w')
 
@@ -60,7 +48,7 @@ def fresh (lista):
         division.configure(fg_color='#8259DC')
         division.grid(sticky='w')
 
-        desc = CriarLabel(card, obj.descricao, 6, 6)
+        desc = CriarLabel(card, obj.desc, 6, 6)
         desc.configure(font=('inter', 18))
         desc.grid(sticky='w')
 
@@ -69,7 +57,7 @@ def fresh (lista):
         division.grid(sticky='w')
 
 
-        numtx = CriarLabel(card, obj.qtd, 6, 8)
+        numtx = CriarLabel(card, obj.estoque, 6, 8)
         numtx.configure(font=('inter', 18))
         numtx.grid(sticky='w')
 
@@ -85,9 +73,16 @@ def fresh (lista):
         division.configure(fg_color='#8259DC')
         division.grid(sticky='w')
 
-        edit = CriarBotão(card, '', 'edit', 6, 12, 40, 25, '#8259DC', '#6A34E1', 'img/lapis.png')
+        btns = CriarFrame(card, 6, 12, 100, 50)
+        btns.configure(fg_color=backColor)
+
+        edit = CriarBotão(btns, 'Adicionar', 'edit', 0, 0, 60, 20, '#8259DC', '#6A34E1')
         #edit.configure(fg_color='#8259DC')
-        edit.grid(sticky='w')
+        edit.grid(sticky='n')
+
+        edit2 = CriarBotão(btns, 'Reduzir', 'edit', 12, 0, 60, 20, '#8259DC', '#6A34E1')
+        # edit.configure(fg_color='#8259DC')
+        edit2.grid(sticky='s')
 
 
 
@@ -108,7 +103,7 @@ largQuad = 200
 #tabela
 fontCol = 18
 
-janela4 = CriarJanela('Dashboard', f'{larg}x{alt}', 1)
+janela4 = CriarJanela('Dashboard', f'{larg}x{alt}', 2)
 janela4.configure(fg_color=backColor)
 
 #header
@@ -205,7 +200,7 @@ preco.grid(sticky='w')
 conteudo = CriarFrameScroll(tabela, 1, 0, larg - 680, 270)
 conteudo.configure(fg_color=janela4.cget('bg'), border_color=principalColor, border_width=3)
 
-fresh(produtos)
+fresh(ListaProdutos)
 
 
 janela4.mainloop()
