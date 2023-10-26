@@ -222,7 +222,7 @@ def CriarComboBox(Local,Largura,Altura,Valores,Linha,Coluna,Comando=0):
     combo= tk.CTkComboBox(Local, width=Largura, height=Altura,
                           values=Valores, state="readonly")
     combo.grid(row=Linha, column=Coluna)
-    combo.set("Selecione")
+    combo.set("Categoria")
     if Comando!=0:
         combo.configure(command=Comando)
     return combo
