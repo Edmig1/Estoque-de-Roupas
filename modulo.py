@@ -387,3 +387,11 @@ def EsconderObjetos(ObjetoCont):
     for filhos in ObjetoCont.winfo_children():
         filhos.grid_forget()
 
+
+def CriarFrameScroll(Local,Linha,Coluna,Largura,Altura):
+    frame = tk.CTkScrollableFrame(Local,width=Largura,height=Altura)
+    frame.grid(row=Linha, column=Coluna)
+    Tamanho = list(range(13))
+    frame.grid_rowconfigure(Tamanho, weight=1)
+    frame.grid_columnconfigure(Tamanho, weight=1)
+    return frame
