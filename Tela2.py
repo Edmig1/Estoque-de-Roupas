@@ -1,6 +1,13 @@
 import customtkinter as tk
 from modulo import *
-from ClasseProdu
+class ClasseProduto():
+    def __init__(self,nome,preco,desc,estoque,tipo):
+        self.nome = nome
+        self.preco = preco
+        self.desc = desc
+        self.estoque = estoque
+        self.tipo = tipo
+
 ListaProdutos = []
 verificacao = []
 
@@ -48,7 +55,7 @@ labelt2.configure(font=('Arial',27))
 
 inputt2_1 = CriarCaixaDeTexto(framet2,200,40,4,6,'Nome:')
 
-inputt2_2 = CriarCaixaDeTexto(framet2,200,40,5,6,'Preço:')
+inputt2_2 = CriarCaixaDeTexto(framet2,200,40,5,6,'Preço:','Moeda')
 
 inputt2_3 = CriarCaixaDeTexto(framet2,200,40,6,6,'Descrição:')
 
