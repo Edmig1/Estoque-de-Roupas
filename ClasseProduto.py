@@ -10,3 +10,4 @@ ListaProdutos = []
 
 def addList (dado):
     ListaProdutos.append(dado)
+    print(ListaProdutos)

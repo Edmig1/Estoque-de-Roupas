@@ -11,8 +11,9 @@ def abrir4 ():
 #-----------------------------------------------------------------
 #functions
 def fresh (lista):
+    cont = 0
     for obj in lista:
-        card = CriarFrame(conteudo, 0, 0, larg - 60, 50)
+        card = CriarFrame(conteudo, cont, 0, larg - 60, 50)
         card.configure(fg_color=backColor)
 
         status = CriarFrame(card, 6, 0, 15, 15)
@@ -24,10 +25,19 @@ def fresh (lista):
             status.configure(fg_color='green')
 
         match obj.tipo:
-            case 'camiseta':
+            case 'Camiseta':
                 image = 'camisa.png'
+            case 'Short':
+                image = 'short.png'
+            case 'Calças':
+                image = 'calca.png'
+            case 'Vestidos':
+                image = 'vestido.png'
+            case 'Acessórios':
+                image = 'relogio.png'
             case _:
                 image = 'camisa.png'
+
 
         im = CriarImagem(card, f'img/{image}',6, 1, 45, 45)
         im.grid(sticky='w')
@@ -84,7 +94,7 @@ def fresh (lista):
         # edit.configure(fg_color='#8259DC')
         edit2.grid(sticky='s')
 
-
+        cont += 1
 
 
 #var -------------------------------------------------------------------------
