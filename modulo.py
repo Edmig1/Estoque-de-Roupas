@@ -395,3 +395,4 @@ def CriarFrameScroll(Local,Linha,Coluna,Largura,Altura):
     frame.grid_rowconfigure(Tamanho, weight=1)
     frame.grid_columnconfigure(Tamanho, weight=1)
     return frame
+
