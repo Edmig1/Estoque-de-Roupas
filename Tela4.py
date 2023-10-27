@@ -6,6 +6,7 @@ tk.set_default_color_theme('themes/violet.json')
 
 def abrir4 ():
     janela4.deiconify()
+    fresh(ListaProdutos)
 
 
 def abrirAdd():
@@ -22,9 +23,9 @@ def fecharAdd():
     fresh(ListaProdutos)
 
 def open2():
-    from Tela2 import abrir2
     janela4.withdraw()
-    abrir2()
+    from Tela2 import deiconify
+    deiconify()
 
 def mudaEstoque():
     from mudaEstoque import abrirTela

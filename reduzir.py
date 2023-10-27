@@ -83,8 +83,8 @@ def listinha():
         nomes.append(i.nome)
     return nomes
 
-jc = CriarJanela("Gerenciar estoque", "600x400", 2)
-titulo1 = CriarLabel(jc, "Gerenciar estoque",0,6)
+jc = CriarJanela("Reduzir estoque", "600x400", 2)
+titulo1 = CriarLabel(jc, "Reduzir estoque",0,6)
 titulo1.configure(font=("Arial",22))
 numero = CriarLabel(jc, "0", 5, 6)
 numero.configure(font=("Arial",42))

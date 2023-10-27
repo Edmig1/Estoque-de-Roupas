@@ -7,10 +7,6 @@ from ClasseProduto import *
 def deiconify():
     janela2.deiconify()
 
-def abrir2 ():
-    from Tela4 import fresh
-    fresh()
-
 def mudatexto():
     labelt2.configure(text='Entrada de Produtos')
     labelt2.configure(text_color='black')
