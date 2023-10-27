@@ -66,45 +66,23 @@ def fresh (lista):
         title.configure(font=('inter', 18))
         title.grid(sticky='w')
 
-        division = CriarFrame(card, 6, 3, 3, 35)
-        division.configure(fg_color='#8259DC')
-        division.grid(sticky='w')
-
         fcategoria = CriarFrame(card, 6, 4, 100, 40)
         categoria = CriarLabel(fcategoria, obj.tipo, 6, 4)
         categoria.configure(font=('inter', 18))
         fcategoria.grid(sticky='w')
         categoria.grid(sticky='w')
 
-        fdivision = CriarFrame(card, 6, 5, 3, 33)
-        division = CriarFrame(fdivision  , 6, 5, 3, 35)
-        division.configure(fg_color='#8259DC')
-        division.grid(sticky='w')
-
         desc = CriarLabel(card, obj.desc, 6, 6)
         desc.configure(font=('inter', 18))
         desc.grid(sticky='w')
-
-        division = CriarFrame(card, 6, 7, 3, 35)
-        division.configure(fg_color='#8259DC')
-        division.grid(sticky='w')
-
 
         numtx = CriarLabel(card, obj.estoque, 6, 8)
         numtx.configure(font=('inter', 18))
         numtx.grid(sticky='w')
 
-        division = CriarFrame(card, 6, 9, 3, 35)
-        division.configure(fg_color='#8259DC')
-        division.grid(sticky='w')
-
         preco = CriarLabel(card, obj.preco, 6, 10)
         preco.configure(font=('inter', 18))
         preco.grid(sticky='w')
-
-        division = CriarFrame(card, 6, 11, 3, 35)
-        division.configure(fg_color='#8259DC')
-        division.grid(sticky='w')
 
         cont += 1
 
