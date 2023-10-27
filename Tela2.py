@@ -10,7 +10,6 @@ def deiconify():
 def mudatexto():
     labelt2.configure(text='Entrada de Produtos')
     labelt2.configure(text_color='black')
-ListaProdutos = []
 verificacao = []
 def enviar():
     inputs = [InputNome, InputPreco, InputDesc, InputEstoque]
