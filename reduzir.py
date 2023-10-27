@@ -1,5 +1,9 @@
 from modulo import *
 from ClasseProduto import *
+import customtkinter as tk
+
+tk.set_appearance_mode("Light")
+tk.set_default_color_theme('themes/violet.json')
 
 qty = 0
 total = 0

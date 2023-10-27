@@ -1,5 +1,10 @@
 from modulo import *
 from ClasseProduto import *
+import customtkinter as tk
+
+tk.set_appearance_mode("Light")
+tk.set_default_color_theme('themes/violet.json')
+
 qty = 0
 total = 0
 objeto = 0
@@ -43,10 +48,11 @@ def diminuir():
 def aumentar():
     global qty
     global total
-    qty += 1
-    total += 1
-    totalLabel.configure(text=f"Total: {total}")
-    numero.configure(text=qty)
+    if total != 0:
+        qty += 1
+        total += 1
+        totalLabel.configure(text=f"Total: {total}")
+        numero.configure(text=qty)
 
 def confirmar():
     from Tela4 import fecharAdd
@@ -68,7 +74,7 @@ def confirmar():
     janelinha.withdraw()
     fecharAdd()
 
-janelinha = CriarJanela("Adicionar estoque", "400x200", 2)
+janelinha = CriarJanela("Adicionar estoque", "600x400", 2)
 titulo1 = CriarLabel(janelinha, "Adicionar estoque",0,6)
 titulo1.configure(font=("Arial",22))
 opcoes = CriarComboBox(janelinha, 100,15, listar(), 2, 6)

@@ -46,8 +46,6 @@ def Cadastro():
     Abas_Login.set("Cadastro")
 
 
-login = {"Nicolas": "12345", "Miguel": "12345", "Henri": "12345", "Basinga": "12345", "Muliro": "12345", "Lara": "12345"}
-
 
 janela = CriarJanela("Janela", "800x350", 1)
 imageFrame = CriarFrame(janela, 0, 0, 400, 350)
@@ -84,24 +82,10 @@ BtnCadastro= CriarBotao(Abas_Login.tab("Login"), "Cadastre-se", Cadastro, 30, 10
 
 # ------------------------ Cadastro ---------------------------
 
-def AlterarTema():
-    if SwTemas.get() == 1:
-        Tk.set_appearance_mode("dark")
-    else:
-        Tk.set_appearance_mode("light")
-
-
-def Cadastro():
-    Abas_Login.set("Cadastro")
-
 
 def Voltar():
     Abas_Login.set("Login")
 
-
-def Limpar():
-    Lb_Cad_Erro.configure(text=" ")
-    Lb_Erro.configure(text=" ")
 
 
 
@@ -120,10 +104,6 @@ def LimparCax():
 
 
    Cb_Cad_Genero.set("Selecione")
-
-
-class Cx_Cad_Data:
-    pass
 
 
 def Cadastrar():
