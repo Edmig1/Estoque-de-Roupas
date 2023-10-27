@@ -233,7 +233,7 @@ def precoOrg ():
 #var -------------------------------------------------------------------------
 larg = 1920
 alt = 1080
-backColor = '#ffffff'
+backColor = '#EBEBEB'
 borderColor = '#000000'
 principalColor = '#8259dc'
 
