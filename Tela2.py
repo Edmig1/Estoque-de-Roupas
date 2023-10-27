@@ -13,23 +13,26 @@ def mudatexto():
 ListaProdutos = []
 verificacao = []
 def enviar():
-    inputs = [inputt2_1, inputt2_2, inputt2_3, inputt2_4]
-    produto = ClasseProduto(inputt2_1.get(), inputt2_2.get(), inputt2_3.get(), inputt2_4.get(), inputt2_5.get())
-    if inputt2_1.get() in verificacao:
-        labelt2.configure(text=f'Produto {inputt2_1.get()} já foi cadastrado')
+    inputs = [InputNome, InputPreco, InputDesc, InputEstoque]
+    preco =InputPreco.get()
+    preco = preco[2:len(preco)]
+    preco = float(preco)
+    print(preco)
+    produto = ClasseProduto(InputNome.get(), preco, InputDesc.get(), InputEstoque.get(), ComboCat.get())
+    if InputNome.get() in verificacao:
+        labelt2.configure(text=f'Produto {InputNome.get()} já foi cadastrado')
         labelt2.configure(text_color='#fcad03')
         labelt2.after(3000,mudatexto)
-        print(produto.nome)
     else:
         addList(produto)
-        verificacao.append(inputt2_1.get())
-        labelt2.configure(text=f'Produto {inputt2_1.get()} cadastrado com sucesso')
+        verificacao.append(InputNome.get())
+        labelt2.configure(text=f'Produto {InputNome.get()} cadastrado com sucesso')
         labelt2.configure(text_color='#22b807')
         labelt2.after(3000,mudatexto)
 
     for i in inputs:
         i.delete(0,'end')
-    inputt2_5.set('Categoria')
+    ComboCat.set('Categoria')
 
 def open4():
     from Tela4 import abrir4
@@ -65,15 +68,15 @@ framet2_2.grid(columnspan=13)
 
 labelt2.configure(font=('Arial',27))
 
-inputt2_1 = CriarCaixaDeTexto(framet2,200,40,4,6,'Nome:')
+InputNome = CriarCaixaDeTexto(framet2,200,40,4,6,'Nome:')
 
-inputt2_2 = CriarCaixaDeTexto(framet2,200,40,5,6,'Preço:','Moeda')
+InputPreco = CriarCaixaDeTexto(framet2,200,40,5,6,'Preço:','Moeda')
 
-inputt2_3 = CriarCaixaDeTexto(framet2,200,40,6,6,'Descrição:')
+InputDesc = CriarCaixaDeTexto(framet2,200,40,6,6,'Descrição:')
 
-inputt2_4 = CriarCaixaDeTexto(framet2,200,40,4,7,'Estoque:')
+InputEstoque = CriarCaixaDeTexto(framet2,200,40,4,7,'Estoque:')
 
-inputt2_5 = CriarComboBox(framet2,200,40,['Camiseta','Short','Calças','Vestidos','Acessórios'],5,7)
+ComboCat = CriarComboBox(framet2,200,40,['Camiseta','Short','Calças','Vestidos','Acessórios'],5,7)
 
 btnt1_2 = CriarBotão(framet2,'ENVIAR',enviar,6,7,200,40)
 

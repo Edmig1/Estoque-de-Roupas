@@ -11,35 +11,35 @@ tk.set_default_color_theme("themes/violet.json")
 def AlterarTema():
     if SwTemas.get()==1:
         tk.set_appearance_mode("dark")
-        texto1.configure(text_color="white")
+        Titulo.configure(text_color="white")
         check.configure(text_color="white")
         imageFrame.configure(fg_color="#161515")
         contentFrame.configure(fg_color=janela.cget("bg"))
 
     else:
         tk.set_appearance_mode("light")
-        texto1.configure(text_color="black")
+        Titulo.configure(text_color="black")
         check.configure(text_color="black")
         imageFrame.configure(fg_color="#F6F4F4")
         contentFrame.configure(fg_color=janela.cget("bg"))
 
 
 def Clique():
-    Login = input1.get()
-    Senha = input2.get()
+    Login = Login_input.get()
+    Senha = Senha_input.get()
     Resposta= AutenticarBD(Login,Senha)
     match Resposta:
         case "Certo":
-            texto2 = CriarLabel(janela, "Login feito com sucesso", 4, 0)
-            texto2.grid(columnspan=12)
-            texto2.configure(text_color="Green", font=("Arial", 16))
+            Titulo_Imagem = CriarLabel(janela, "Login feito com sucesso", 4, 0)
+            Titulo_Imagem.grid(columnspan=12)
+            Titulo_Imagem.configure(text_color="Green", font=("Arial", 16))
             from Tela2 import deiconify
             janela.withdraw()
             deiconify()
         case "Errado!":
-            texto2 = CriarLabel(janela, "Login / Senha incorretos", 4, 0)
-            texto2.grid(columnspan=12)
-            texto2.configure(text_color="Red", font=("Arial", 16))
+            Titulo_Imagem = CriarLabel(janela, "Login / Senha incorretos", 4, 0)
+            Titulo_Imagem.grid(columnspan=12)
+            Titulo_Imagem.configure(text_color="Red", font=("Arial", 16))
 
 
 def Cadastro():
@@ -52,9 +52,9 @@ imageFrame = CriarFrame(janela, 0, 0, 400, 350)
 imageFrame.configure(fg_color="#F6F4F4")
 imagem = CriarImagem(imageFrame, 300, 300, 2, 0, 'roupa.png')
 imagem.grid(columnspan=13)
-texto2 = CriarLabel(imageFrame,"Entre com sua conta e gerencie o estoque", 0, 0)
-texto2.configure(font=("Arial",18))
-texto2.grid(columnspan=13)
+Titulo_Imagem = CriarLabel(imageFrame,"Entre com sua conta e gerencie o estoque", 0, 0)
+Titulo_Imagem.configure(font=("Arial",18))
+Titulo_Imagem.grid(columnspan=13)
 
 
 contentFrame = CriarFrame(janela, 0, 1, 400, 350)
@@ -64,15 +64,15 @@ contentFrame.configure(fg_color=janela.cget("bg"))
 Abas_Login = CriarAbas(contentFrame,1,1,300,300,"Login","Cadastro",)
 Abas_Login.grid(columnspan=13)
 
-texto1 = CriarLabel(Abas_Login.tab("Login"), "LOGIN", 2, 0)
-texto1.grid(columnspan=12)
-texto1.configure(text_color="Black", font=("Arial",30))
-input1 = CriarCaixaDeTexto(Abas_Login.tab("Login"),Largura=200, Altura=30, Linha=5, Coluna=6, Texto="Insira seu nome")
-input2 = CriarCaixaDeTexto(Abas_Login.tab("Login"),Largura=200, Altura=30, Linha=6, Coluna=6, Texto="Insira sua senha",Modo="Senha")
+Titulo = CriarLabel(Abas_Login.tab("Login"), "LOGIN", 2, 0)
+Titulo.grid(columnspan=12)
+Titulo.configure(text_color="Black", font=("Arial",30))
+Login_input = CriarCaixaDeTexto(Abas_Login.tab("Login"),Largura=200, Altura=30, Linha=5, Coluna=6, Texto="Insira seu nome")
+Senha_input = CriarCaixaDeTexto(Abas_Login.tab("Login"),Largura=200, Altura=30, Linha=6, Coluna=6, Texto="Insira sua senha",Modo="Senha")
 check = CriarCheck(Abas_Login.tab("Login"),"Lembre de Mim", 7,6)
 check.configure(text_color="Black", font=("Arial", 16))
 check.get()
-btn1 = CriarBotao(Abas_Login.tab("Login"), Texto="LOGIN",Comando=Clique, Linha=8, Coluna=6, Largura=195, Altura=30)
+Btn_Logar = CriarBotao(Abas_Login.tab("Login"), Texto="LOGIN",Comando=Clique, Linha=8, Coluna=6, Largura=195, Altura=30)
 SwTemas = CriarSwitch(contentFrame,"Alterar Tema  ",0,0,AlterarTema)
 SwTemas.grid(columnspan=13, sticky = "E")
 
@@ -124,7 +124,7 @@ def Cadastrar():
 
 
 ###########   Tela de Cadastro   ###########
-# Logi
+# Login
 Lb_Cad_Login = CriarLabel(Abas_Login.tab("Cadastro"),"Login:",0,5)
 Lb_Cad_Login.grid(sticky = "S")
 Cx_Cad_Login = CriarCaixaDeTexto(Abas_Login.tab("Cadastro"),150,30,0,6,"Login")
