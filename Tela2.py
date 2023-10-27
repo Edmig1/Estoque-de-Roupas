@@ -4,8 +4,10 @@ import customtkinter as tk
 from modulo import *
 from ClasseProduto import *
 
-def abrir2 ():
+def deiconify():
     janela2.deiconify()
+
+def abrir2 ():
     from Tela4 import fresh
     fresh()
 

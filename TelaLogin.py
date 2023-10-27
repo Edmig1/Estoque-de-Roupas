@@ -33,9 +33,9 @@ def Clique():
             texto2 = CriarLabel(janela, "Login feito com sucesso", 4, 0)
             texto2.grid(columnspan=12)
             texto2.configure(text_color="Green", font=("Arial", 16))
-            from Tela2 import abrir2
-            abrir2()
+            from Tela2 import deiconify
             janela.withdraw()
+            deiconify()
         case "Errado!":
             texto2 = CriarLabel(janela, "Login / Senha incorretos", 4, 0)
             texto2.grid(columnspan=12)
