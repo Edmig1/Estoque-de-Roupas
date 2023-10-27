@@ -18,6 +18,7 @@ def abrirRed():
     abrirTela()
 
 def fecharAdd():
+    janela4.deiconify()
     fresh(ListaProdutos)
 
 def open2():
