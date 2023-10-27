@@ -7,21 +7,26 @@ from ClasseProduto import *
 def abrir2 ():
     janela2.deiconify()
 
-
+def mudatexto():
+    labelt2.configure(text='Entrada de Produtos')
+    labelt2.configure(text_color='black')
 ListaProdutos = []
 verificacao = []
 def enviar():
     inputs = [inputt2_1, inputt2_2, inputt2_3, inputt2_4]
     produto = ClasseProduto(inputt2_1.get(), inputt2_2.get(), inputt2_3.get(), inputt2_4.get(), inputt2_5.get())
     if inputt2_1.get() in verificacao:
-        print(f'O produto {inputt2_1.get()} já está cadastrado')
+        labelt2.configure(text=f'Produto {inputt2_1.get()} já foi cadastrado')
+        labelt2.configure(text_color='#fcad03')
+        labelt2.after(3000,mudatexto)
         print(produto.nome)
     else:
         addList(produto)
         verificacao.append(inputt2_1.get())
+        labelt2.configure(text=f'Produto {inputt2_1.get()} cadastrado com sucesso')
+        labelt2.configure(text_color='#22b807')
+        labelt2.after(3000,mudatexto)
 
-        #with open('token.txt', 'w') as file:
-            #file.write(ListaProdutos)
     for i in inputs:
         i.delete(0,'end')
     inputt2_5.set('Categoria')
