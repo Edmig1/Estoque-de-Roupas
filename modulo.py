@@ -1,6 +1,6 @@
 import customtkinter as tk
 from PIL import Image
-from tkcalendar import *
+#from tkcalendar import *
 primeiro = True
 
 
