@@ -190,6 +190,56 @@ def atualizaTops ():
     luc = CriarLabel(itensImgL, 'Balanço', 0, 6)
     luc.configure(text_color=backColor, font=('inter', 18))
     luc.grid(sticky='w')
+
+def nameOrg ():
+    names = []
+    secondL = []
+    for i in ListaProdutos:
+        names.append(i.nome)
+
+    names.sort()
+    for i in names:
+        for j in ListaProdutos:
+            if i == j.nome:
+                secondL.append(j)
+
+    fresh(secondL)
+
+def numOrg():
+    nuns = []
+    secondL = []
+    print(ListaProdutos)
+    for i in ListaProdutos:
+        nuns.append(i.estoque)
+    print(nuns)
+    nuns.sort(reverse=True)
+    ll = []
+    for i in ListaProdutos:
+        ll.append(i)
+    for i in nuns:
+        for j in ll:
+            if i == j.estoque:
+                secondL.append(j)
+                ll.remove(j)
+    fresh(secondL)
+
+def precoOrg ():
+    nuns = []
+    secondL = []
+    for i in ListaProdutos:
+        nuns.append(i.preco)
+    nuns.sort(reverse=True)
+    print(nuns)
+    ll = []
+    for i in ListaProdutos:
+        ll.append(i)
+    for i in nuns:
+        for j in ll:
+            if i == j.preco:
+                secondL.append(j)
+                ll.remove(j)
+    fresh(secondL)
+
 #var -------------------------------------------------------------------------
 larg = 1920
 alt = 1080
@@ -236,8 +286,8 @@ colunas = CriarFrame(tabela, 0, 0, larg - 680, 50)
 colunas.configure(fg_color=backColor, border_color=principalColor, border_width=3)
 colunas.grid(sticky='n')
 
-nome = CriarLabel(colunas, 'Nome', 7, 3)
-nome.configure(font=('inter', fontCol))
+nome = CriarBotão(colunas, 'Nome', nameOrg, 7, 3, 50, 25, backColor, '#8259DC')
+nome.configure(font=('inter', fontCol), text_color='black')
 
 categoria = CriarLabel(colunas, '  Categoria', 7, 5)
 categoria.configure(font=('inter', fontCol))
@@ -248,12 +298,12 @@ desc.configure(font=('inter', fontCol))
 desc.grid(stick='e')
 
 
-num = CriarLabel(colunas, '     Número', 7, 8)
-num.configure(font=('inter', fontCol))
+num = CriarBotão(colunas, 'Número', numOrg, 7, 8, 50, 25, backColor, '#8259DC')
+num.configure(font=('inter', fontCol), text_color='black')
 num.grid(sticky='e')
 
-preco = CriarLabel(colunas, '                Preço', 7, 9)
-preco.configure(font=('inter', fontCol))
+preco = CriarBotão(colunas, 'Preço', precoOrg, 7, 9, 50, 25, backColor,'#8259DC' )
+preco.configure(font=('inter', fontCol), text_color='black')
 preco.grid(sticky='w')
 
 #content table

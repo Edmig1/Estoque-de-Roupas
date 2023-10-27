@@ -48,9 +48,9 @@ def calcSpace ():
     return round(percent, 1)
 
 
-camisa = ClasseProduto('camisa', 10, 'uma camisa', 10, 'Camiseta')
-calca = ClasseProduto('calça', 10, 'uma calça', 10, 'Calças')
-short = ClasseProduto('short preto', 10, 'um short', 10, 'Short')
+camisa = ClasseProduto('camisa', 10, 'uma camisa', 15, 'Camiseta')
+calca = ClasseProduto('calça', 10, 'uma calça', 12, 'Calças')
+short = ClasseProduto('short preto', 10, 'um short', 11, 'Short')
 vestido = ClasseProduto('vestido', 10, 'vestido', 10, 'Vestidos')
 acessorio = ClasseProduto('relógio', 10, 'relogioeiro', 10, 'Acessórios')
 
