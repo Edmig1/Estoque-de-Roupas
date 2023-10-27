@@ -3,6 +3,8 @@ from ClasseProduto import *
 qty = 0
 total = 0
 objeto = 0
+preco = 0
+name = ''
 
 def abrirTela(nome):
     janelinha.deiconify()
@@ -11,8 +13,12 @@ def abrirTela(nome):
 def getTotal(nome):
     global total
     global objeto
+    global name
+    global preco
     for obj in ListaProdutos:
         if obj.nome == nome:
+            name = obj.nome
+            preco = obj.preco
             objeto = obj
             total = int(obj.estoque)
             totalLabel.configure(text=f"Total: {total}")
@@ -36,9 +42,21 @@ def aumentar():
 
 def confirma():
     from Tela4 import fecharAdd
+    from Tela4 import atualizaTops
+    from Tela4 import fresh
     global objeto
     global total
-    objeto.estoque = total
+    global name
+    global preco
+    addComp(preco * total)
+
+    for i in ListaProdutos:
+        if i.nome == name:
+            i.estoque = total
+            break
+
+    atualizaTops()
+    fresh(ListaProdutos)
     janelinha.withdraw()
     fecharAdd()
 

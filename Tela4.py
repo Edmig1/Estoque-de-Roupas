@@ -19,6 +19,10 @@ def abrirRed(nome):
 def fecharAdd():
     fresh(ListaProdutos)
 
+def open2():
+    from Tela2 import abrir2
+    janela4.withdraw()
+    abrir2()
 
 #-----------------------------------------------------------------
 #functions
@@ -54,7 +58,10 @@ def fresh (lista):
         im = CriarImagem(card, f'img/{image}',6, 1, 45, 45)
         im.grid(sticky='w')
 
-        title = CriarLabel(card, obj.nome, 6, 2)
+        fTitle = CriarFrame(card, 6, 2, 100, 50)
+        fTitle.configure(fg_color=backColor)
+        fTitle.grid(sticky='w')
+        title = CriarLabel(fTitle, obj.nome, 6, 2)
         title.configure(font=('inter', 18))
         title.grid(sticky='w')
 
@@ -62,11 +69,14 @@ def fresh (lista):
         division.configure(fg_color='#8259DC')
         division.grid(sticky='w')
 
-        categoria = CriarLabel(card, obj.tipo, 6, 4)
+        fcategoria = CriarFrame(card, 6, 4, 100, 40)
+        categoria = CriarLabel(fcategoria, obj.tipo, 6, 4)
         categoria.configure(font=('inter', 18))
+        fcategoria.grid(sticky='w')
         categoria.grid(sticky='w')
 
-        division = CriarFrame(card, 6, 5, 3, 35)
+        fdivision = CriarFrame(card, 6, 5, 3, 33)
+        division = CriarFrame(fdivision  , 6, 5, 3, 35)
         division.configure(fg_color='#8259DC')
         division.grid(sticky='w')
 
@@ -108,7 +118,78 @@ def fresh (lista):
 
         cont += 1
 
+def atualizaTops ():
+    # --
+    itensEstoque = CriarFrame(infoCampo, 7, 0, largQuad, 115)
+    itensEstoque.configure(fg_color=backColor)
 
+    intesInfoE = CriarFrame(itensEstoque, 13, 0, largQuad, 85)
+    intesInfoE.configure(fg_color=backColor, border_color=borderColor, border_width=2)
+
+    estoInf = CriarLabel(intesInfoE, f'estoque em: {calcSpace()}%', 6, 2)
+    estoInf.configure(font=('inter', 20))
+
+    itensImg = CriarFrame(itensEstoque, 5, 0, 108, 30)
+    itensImg.configure(fg_color=principalColor)
+    itensImg.grid(sticky='w')
+
+    esto = CriarLabel(itensImg, 'estoque', 0, 6)
+    esto.configure(text_color=backColor, font=('inter', 18))
+
+    # ------
+
+    itensVendas = CriarFrame(infoCampo, 7, 4, largQuad, 115)
+    itensVendas.configure(fg_color=backColor)
+
+    intesInfoV = CriarFrame(itensVendas, 13, 0, largQuad, 85)
+    intesInfoV.configure(fg_color=backColor, border_color=borderColor, border_width=2)
+
+    vendInf = CriarLabel(intesInfoV, f'total de vendas: {vendas()}', 6, 2)
+    vendInf.configure(font=('inter', 20))
+
+    itensImgV = CriarFrame(itensVendas, 5, 0, 108, 30)
+    itensImgV.configure(fg_color=principalColor)
+    itensImgV.grid(sticky='w')
+
+    vend = CriarLabel(itensImgV, 'vendas', 0, 6)
+    vend.configure(text_color=backColor, font=('inter', 18))
+
+    # ------
+
+    itensEntrada = CriarFrame(infoCampo, 7, 8, largQuad, 115)
+    itensEntrada.configure(fg_color=backColor)
+
+    intesInfoEntra = CriarFrame(itensEntrada, 13, 0, largQuad, 85)
+    intesInfoEntra.configure(fg_color=backColor, border_color=borderColor, border_width=2)
+
+    entreInf = CriarLabel(intesInfoEntra, f'total de entrada: {comp()}', 6, 2)
+    entreInf.configure(font=('inter', 20))
+
+    itensImgE = CriarFrame(itensEntrada, 5, 0, 108, 30)
+    itensImgE.configure(fg_color=principalColor)
+    itensImgE.grid(sticky='w')
+
+    entra = CriarLabel(itensImgE, 'entradas', 0, 6)
+    entra.configure(text_color=backColor, font=('inter', 18))
+
+    # --
+
+    itensLucro = CriarFrame(infoCampo, 7, 12, largQuad, 115)
+    itensLucro.configure(fg_color=backColor)
+
+    intesInfoL = CriarFrame(itensLucro, 13, 0, largQuad, 85)
+    intesInfoL.configure(fg_color=backColor, border_color=borderColor, border_width=2)
+
+    lucInf = CriarLabel(intesInfoL, f'total de lucro: {atualizaLucro()}', 6, 2)
+    lucInf.configure(font=('inter', 20))
+
+    itensImgL = CriarFrame(itensLucro, 5, 0, 108, 30)
+    itensImgL.configure(fg_color=principalColor)
+    itensImgL.grid(sticky='w')
+
+    luc = CriarLabel(itensImgL, 'Balanço', 0, 6)
+    luc.configure(text_color=backColor, font=('inter', 18))
+    luc.grid(sticky='w')
 #var -------------------------------------------------------------------------
 larg = 1920
 alt = 1080
@@ -142,49 +223,7 @@ suporte = CriarImagem(header, 'img/suporte.png', 7, 12, altH - 20, 170)
 infoCampo = CriarFrame(janela4, 1, 0, larg, 115)
 infoCampo.configure(fg_color=backColor)
 
-#--
-itensEstoque = CriarFrame(infoCampo, 7, 0, largQuad, 115)
-itensEstoque.configure(fg_color=backColor)
-
-intesInfoE = CriarFrame(itensEstoque, 13, 0, largQuad, 85)
-intesInfoE.configure(fg_color=backColor, border_color=borderColor, border_width=2)
-
-itensImg = CriarFrame(itensEstoque, 5, 0, 108, 30)
-itensImg.configure(fg_color=principalColor)
-itensImg.grid(sticky='w')
-
-esto = CriarLabel(itensImg, 'estoque', 0, 6)
-esto.configure(text_color=backColor, font=('inter', 18))
-
-#------
-
-itensVendas = CriarFrame(infoCampo, 7, 6, largQuad, 115)
-itensVendas.configure(fg_color=backColor)
-
-intesInfoV = CriarFrame(itensVendas, 13, 0, largQuad, 85)
-intesInfoV.configure(fg_color=backColor, border_color=borderColor, border_width=2)
-
-itensImgV = CriarFrame(itensVendas, 5, 0, 108, 30)
-itensImgV.configure(fg_color=principalColor)
-itensImgV.grid(sticky='w')
-
-vend = CriarLabel(itensImgV, 'vendas', 0, 6)
-vend.configure(text_color=backColor, font=('inter', 18))
-
-#------
-
-itensEntrada = CriarFrame(infoCampo, 7, 12, largQuad, 115)
-itensEntrada.configure(fg_color=backColor)
-
-intesInfoEntra = CriarFrame(itensEntrada, 13, 0, largQuad, 85)
-intesInfoEntra.configure(fg_color=backColor, border_color=borderColor, border_width=2)
-
-itensImgE = CriarFrame(itensEntrada, 5, 0, 108, 30)
-itensImgE.configure(fg_color=principalColor)
-itensImgE.grid(sticky='w')
-
-entra = CriarLabel(itensImgE, 'entradas', 0, 6)
-entra.configure(text_color=backColor, font=('inter', 18))
+atualizaTops()
 
 #gráficos
 #graficos = CriarFrame(janela4, 2, 0, larg, 300)
@@ -221,6 +260,12 @@ preco.grid(sticky='w')
 
 conteudo = CriarFrameScroll(tabela, 1, 0, larg - 680, 270)
 conteudo.configure(fg_color=janela4.cget('bg'), border_color=principalColor, border_width=3)
+
+toHome = CriarFrame(janela4, 4, 0, larg, 50)
+toHome.configure(fg_color=backColor)
+
+voltarBtn = CriarBotão(toHome, 'retornar', open2, 6, 6, 100, 50, '#8259DC', '#6A34E1')
+
 
 fresh(ListaProdutos)
 
