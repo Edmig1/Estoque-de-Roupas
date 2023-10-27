@@ -1,6 +1,22 @@
 from modulo import *
+from ClasseProduto import *
 qty = 0
-total = 34
+total = 0
+objeto = 0
+
+def abrirTela(nome):
+    janelinha.deiconify()
+    getTotal(nome)
+
+def getTotal(nome):
+    global total
+    global objeto
+    for obj in ListaProdutos:
+        if obj.nome == nome:
+            objeto = obj
+            total = int(obj.estoque)
+            totalLabel.configure(text=f"Total: {total}")
+
 
 def diminuir():
     global qty
@@ -18,8 +34,14 @@ def aumentar():
     totalLabel.configure(text=f"Total: {total}")
     numero.configure(text=qty)
 
+def confirma():
+    from Tela4 import fecharAdd
+    global objeto
+    global total
+    objeto.estoque = total
+    janelinha.withdraw()
+    fecharAdd()
 
-janelasso = CriarJanela("Teste", "600x600", 1)
 janelinha = CriarJanela("Adicionar estoque", "400x200", 2)
 titulo1 = CriarLabel(janelinha, "Adicionar estoque",0,6)
 titulo1.configure(font=("Arial",22))
@@ -30,4 +52,4 @@ menos.configure(font=("Arial",42))
 mais = CriarBotão(janelinha, "+", aumentar, 5, 7, 40,40)
 mais.configure(font=("Arial",42))
 totalLabel = CriarLabel(janelinha,f"Total: {total}",12,6)
-janelasso.mainloop()
+confirma = CriarBotão(janelinha, "Confirmar", confirma, 8,6,80,20)

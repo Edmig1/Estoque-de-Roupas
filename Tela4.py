@@ -8,6 +8,18 @@ def abrir4 ():
     janela4.deiconify()
 
 
+def abrirAdd(nome):
+    from adicionar import abrirTela
+    abrirTela(nome)
+
+def abrirRed(nome):
+    from reduzir import abrirTela
+    abrirTela(nome)
+
+def fecharAdd():
+    fresh(ListaProdutos)
+
+
 #-----------------------------------------------------------------
 #functions
 def fresh (lista):
@@ -86,11 +98,11 @@ def fresh (lista):
         btns = CriarFrame(card, 6, 12, 100, 50)
         btns.configure(fg_color=backColor)
 
-        edit = CriarBotão(btns, 'Adicionar', 'edit', 0, 0, 60, 20, '#8259DC', '#6A34E1')
+        edit = CriarBotão(btns, 'Adicionar',lambda: abrirAdd(obj.nome), 0, 0, 60, 20, '#8259DC', '#6A34E1')
         #edit.configure(fg_color='#8259DC')
         edit.grid(sticky='n')
 
-        edit2 = CriarBotão(btns, 'Reduzir', 'edit', 12, 0, 60, 20, '#8259DC', '#6A34E1')
+        edit2 = CriarBotão(btns, 'Reduzir', lambda: abrirRed(obj.nome), 12, 0, 60, 20, '#8259DC', '#6A34E1')
         # edit.configure(fg_color='#8259DC')
         edit2.grid(sticky='s')
 
