@@ -8,9 +8,8 @@ totalReal = 0
 preco = 0
 name = ''
 
-def abrirTela(nome):
+def abrirTela():
     jc.deiconify()
-    getTotal(nome)
 
 def getTotal(nome):
     global total

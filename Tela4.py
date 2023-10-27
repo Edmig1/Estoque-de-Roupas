@@ -8,14 +8,14 @@ def abrir4 ():
     janela4.deiconify()
 
 
-def abrirAdd(nome):
+def abrirAdd():
     from adicionar import abrirTela
-    abrirTela(nome)
+    abrirTela()
 
-def abrirRed(nome):
-    print(nome)
+def abrirRed():
+    print()
     from reduzir import abrirTela
-    abrirTela(nome)
+    abrirTela()
 
 def fecharAdd():
     fresh(ListaProdutos)
@@ -282,13 +282,11 @@ conteudo.configure(fg_color=janela4.cget('bg'), border_color=principalColor, bor
 toHome = CriarFrame(janela4, 4, 0, larg, 50)
 toHome.configure(fg_color=backColor)
 
-addBtn = CriarBotão(toHome, 'Adicionar', open2, 6, 0, 100, 50, '#8259DC', '#6A34E1')
-addBtn.grid(columnspan=6, sticky='e')
-lessBtn = CriarBotão(toHome, 'Reduzir', open2, 6, 12, 100, 50, '#8259DC', '#6A34E1')
-lessBtn.grid(columnspan=6)
+addBtn = CriarBotão(toHome, 'Adicionar', abrirAdd, 6, 5, 100, 70, '#8259DC', '#6A34E1')
 
-voltarBtn = CriarBotão(toHome, 'retornar', open2, 7, 6, 100, 50, '#8259DC', '#6A34E1')
+lessBtn = CriarBotão(toHome, 'Reduzir', abrirRed, 6, 6, 100, 70, '#8259DC', '#6A34E1')
 
+voltarBtn = CriarBotão(toHome, 'retornar', open2, 6, 7, 100, 70, '#8259DC', '#6A34E1')
 
 fresh(ListaProdutos)
 
