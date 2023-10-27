@@ -84,17 +84,6 @@ def fresh (lista):
         preco.configure(font=('inter', 18))
         preco.grid(sticky='w')
 
-        btns = CriarFrame(card, 6, 12, 100, 50)
-        btns.configure(fg_color=backColor)
-
-        edit = CriarBotão(btns, 'Adicionar', lambda: abrirAdd(obj.nome), 0, 0, 60, 20, '#8259DC', '#6A34E1')
-        # edit.configure(fg_color='#8259DC')
-        edit.grid(sticky='n')
-
-        edit2 = CriarBotão(btns, 'Reduzir', lambda: abrirRed(obj.nome), 12, 0, 60, 20, '#8259DC', '#6A34E1')
-        # edit.configure(fg_color='#8259DC')
-        edit2.grid(sticky='s')
-
         cont += 1
 
 def atualizaTops ():
@@ -293,7 +282,12 @@ conteudo.configure(fg_color=janela4.cget('bg'), border_color=principalColor, bor
 toHome = CriarFrame(janela4, 4, 0, larg, 50)
 toHome.configure(fg_color=backColor)
 
-voltarBtn = CriarBotão(toHome, 'retornar', open2, 6, 6, 100, 50, '#8259DC', '#6A34E1')
+addBtn = CriarBotão(toHome, 'Adicionar', open2, 6, 0, 100, 50, '#8259DC', '#6A34E1')
+addBtn.grid(columnspan=6, sticky='e')
+lessBtn = CriarBotão(toHome, 'Reduzir', open2, 6, 12, 100, 50, '#8259DC', '#6A34E1')
+lessBtn.grid(columnspan=6)
+
+voltarBtn = CriarBotão(toHome, 'retornar', open2, 7, 6, 100, 50, '#8259DC', '#6A34E1')
 
 
 fresh(ListaProdutos)
