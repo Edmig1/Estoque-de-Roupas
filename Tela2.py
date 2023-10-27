@@ -6,6 +6,8 @@ from ClasseProduto import *
 
 def abrir2 ():
     janela2.deiconify()
+    from Tela4 import fresh
+    fresh()
 
 def mudatexto():
     labelt2.configure(text='Entrada de Produtos')

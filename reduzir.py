@@ -51,7 +51,7 @@ def aumentar():
         numero.configure(text=qty)
         pb.set(value=regra(totalReal, total))
 
-def confirma():
+def confirmar():
     from Tela4 import fecharAdd
     from Tela4 import atualizaTops
     from Tela4 import fresh
@@ -70,8 +70,8 @@ def confirma():
     jc.withdraw()
     fecharAdd()
 
-jc = CriarJanela("Retirar estoque", "400x200", 2)
-titulo1 = CriarLabel(jc, "Retirar estoque",0,6)
+jc = CriarJanela("Gerenciar estoque", "600x400", 2)
+titulo1 = CriarLabel(jc, "Gerenciar estoque",0,6)
 titulo1.configure(font=("Arial",22))
 numero = CriarLabel(jc, "0", 5, 6)
 numero.configure(font=("Arial",42))
@@ -83,4 +83,5 @@ pb = CriarProgressBar(jc,150,15,12, 6)
 pb.grid(sticky="W")
 pb.set(value=1)
 totalLabel = CriarLabel(jc,f"Total: {total}",12,7)
-confirma = CriarBotão(jc, "Confirmar", confirma, 8,6,80,20)
+confirma = CriarBotão(jc, "Confirmar", confirmar, 8,6,80,20)
+jc.mainloop()

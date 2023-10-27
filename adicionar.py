@@ -40,7 +40,7 @@ def aumentar():
     totalLabel.configure(text=f"Total: {total}")
     numero.configure(text=qty)
 
-def confirma():
+def confirmar():
     from Tela4 import fecharAdd
     from Tela4 import atualizaTops
     from Tela4 import fresh
@@ -70,4 +70,4 @@ menos.configure(font=("Arial",42))
 mais = CriarBotão(janelinha, "+", aumentar, 5, 7, 40,40)
 mais.configure(font=("Arial",42))
 totalLabel = CriarLabel(janelinha,f"Total: {total}",12,6)
-confirma = CriarBotão(janelinha, "Confirmar", confirma, 8,6,80,20)
+confirma = CriarBotão(janelinha, "Confirmar", confirmar, 8,6,80,20)

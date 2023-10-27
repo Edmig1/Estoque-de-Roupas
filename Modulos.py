@@ -213,13 +213,13 @@ def CriarCaixaDeTexto(Local,Largura,Altura,Linha,Coluna,Texto=0,Modo="Padrão"):
        def SenhaMostra():
            global primeiro
            if primeiro:
-               imagem_pillow = Image.open("Imagens/eye.ico")
+               imagem_pillow = Image.open("eye.ico")
                imageTk = tk.CTkImage(imagem_pillow, size=[15, 15])
                MostraSenha.configure(image=imageTk)
                Caixa.configure(show="")
                primeiro = False
            else:
-               imagem_pillow = Image.open("Imagens/eye2.ico")
+               imagem_pillow = Image.open("eye2.ico")
                imageTk = tk.CTkImage(imagem_pillow, size=[15, 15])
                MostraSenha.configure(image=imageTk)
                Caixa.configure(show="*")

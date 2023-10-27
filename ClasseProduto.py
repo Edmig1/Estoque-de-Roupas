@@ -43,7 +43,7 @@ def atualizaLucro ():
 def calcSpace ():
     cont = 0
     for obj in ListaProdutos:
-        cont += obj.estoque
+        cont += int(obj.estoque)
     percent = cont / maxEstoque * 100
     return round(percent, 1)
 

@@ -13,6 +13,7 @@ def abrirAdd(nome):
     abrirTela(nome)
 
 def abrirRed(nome):
+    print(nome)
     from reduzir import abrirTela
     abrirTela(nome)
 
@@ -104,17 +105,6 @@ def fresh (lista):
         division = CriarFrame(card, 6, 11, 3, 35)
         division.configure(fg_color='#8259DC')
         division.grid(sticky='w')
-
-        btns = CriarFrame(card, 6, 12, 100, 50)
-        btns.configure(fg_color=backColor)
-
-        edit = CriarBotão(btns, 'Adicionar',lambda: abrirAdd(obj.nome), 0, 0, 60, 20, '#8259DC', '#6A34E1')
-        #edit.configure(fg_color='#8259DC')
-        edit.grid(sticky='n')
-
-        edit2 = CriarBotão(btns, 'Reduzir', lambda: abrirRed(obj.nome), 12, 0, 60, 20, '#8259DC', '#6A34E1')
-        # edit.configure(fg_color='#8259DC')
-        edit2.grid(sticky='s')
 
         cont += 1
 
