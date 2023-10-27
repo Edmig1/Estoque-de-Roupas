@@ -2,7 +2,7 @@ from modulo import *
 from ClasseProduto import *
 
 tk.set_appearance_mode("Light")
-#tk.set_default_color_theme('themes/violet.json')
+tk.set_default_color_theme('themes/violet.json')
 
 def abrir4 ():
     janela4.deiconify()
@@ -24,6 +24,11 @@ def open2():
     from Tela2 import abrir2
     janela4.withdraw()
     abrir2()
+
+def mudaEstoque():
+    from mudaEstoque import abrirTela
+    janela4.withdraw()
+    abrirTela()
 
 #-----------------------------------------------------------------
 #functions
@@ -67,6 +72,7 @@ def fresh (lista):
         title.grid(sticky='w')
 
         fcategoria = CriarFrame(card, 6, 4, 100, 40)
+        fcategoria.configure(fg_color=backColor)
         categoria = CriarLabel(fcategoria, obj.tipo, 6, 4)
         categoria.configure(font=('inter', 18))
         fcategoria.grid(sticky='w')
@@ -94,8 +100,8 @@ def atualizaTops ():
     intesInfoE = CriarFrame(itensEstoque, 13, 0, largQuad, 85)
     intesInfoE.configure(fg_color=backColor, border_color=borderColor, border_width=2)
 
-    estoInf = CriarLabel(intesInfoE, f'estoque em: {calcSpace()}%', 6, 2)
-    estoInf.configure(font=('inter', 20))
+    estoInf = CriarBotão(intesInfoE, f'estoque em: {calcSpace()}%', mudaEstoque, 6, 2, largQuad - 20, 50)
+    estoInf.configure(font=('inter', 20), fg_color=backColor, text_color='black')
 
     itensImg = CriarFrame(itensEstoque, 5, 0, 108, 30)
     itensImg.configure(fg_color=principalColor)
@@ -103,6 +109,9 @@ def atualizaTops ():
 
     esto = CriarLabel(itensImg, 'estoque', 0, 6)
     esto.configure(text_color=backColor, font=('inter', 18))
+
+    if calcSpace() >= 100:
+        intesInfoE.configure(fg_color='#fcad03')
 
     # ------
 
@@ -213,7 +222,7 @@ larg = 1920
 alt = 1080
 backColor = '#EBEBEB'
 borderColor = '#000000'
-principalColor = '#8259dc'
+principalColor = '#7C63A6'
 
 #header
 altH = 80
@@ -272,7 +281,7 @@ num.grid(sticky='e')
 
 preco = CriarBotão(colunas, 'Preço', precoOrg, 7, 9, 50, 25, backColor,'#8259DC' )
 preco.configure(font=('inter', fontCol), text_color='black')
-preco.grid(sticky='w')
+preco.grid(sticky='e')
 
 #content table
 
@@ -282,11 +291,11 @@ conteudo.configure(fg_color=janela4.cget('bg'), border_color=principalColor, bor
 toHome = CriarFrame(janela4, 4, 0, larg, 50)
 toHome.configure(fg_color=backColor)
 
-addBtn = CriarBotão(toHome, 'Adicionar', abrirAdd, 6, 5, 100, 70, '#8259DC', '#6A34E1')
+addBtn = CriarBotão(toHome, 'Adicionar', abrirAdd, 6, 5, 100, 70, principalColor, '#6C5090')
 
-lessBtn = CriarBotão(toHome, 'Reduzir', abrirRed, 6, 6, 100, 70, '#8259DC', '#6A34E1')
+lessBtn = CriarBotão(toHome, 'Reduzir', abrirRed, 6, 6, 100, 70, principalColor, '#6C5090')
 
-voltarBtn = CriarBotão(toHome, 'retornar', open2, 6, 7, 100, 70, '#8259DC', '#6A34E1')
+voltarBtn = CriarBotão(toHome, 'retornar', open2, 6, 7, 100, 70, principalColor, '#6C5090')
 
 fresh(ListaProdutos)
 

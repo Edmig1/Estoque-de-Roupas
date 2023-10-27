@@ -47,6 +47,14 @@ def calcSpace ():
     percent = cont / maxEstoque * 100
     return round(percent, 1)
 
+def alteraEs (add):
+    global maxEstoque
+    maxEstoque = add
+
+def voltaTotalEsp ():
+    global maxEstoque
+    return maxEstoque
+
 
 camisa = ClasseProduto('camisa', 10, 'uma camisa', 15, 'Camiseta')
 calca = ClasseProduto('calça', 10, 'uma calça', 12, 'Calças')
