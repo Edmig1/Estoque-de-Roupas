@@ -18,6 +18,7 @@ def getTotal(nome):
     global objeto
     global preco
     global name
+    global qty
     for obj in ListaProdutos:
         if obj.nome == nome:
             name = obj.nome
@@ -26,6 +27,9 @@ def getTotal(nome):
             totalReal = int(obj.estoque)
             preco = float(obj.preco)
             totalLabel.configure(text=f"Total: {total}")
+            qty = 0
+            numero.configure(text=qty)
+    pb.set(value=1)
 
 def regra(total, parcial):
     porcento = parcial/total
@@ -44,7 +48,7 @@ def diminuir():
 def aumentar():
     global qty
     global total
-    if qty < 34:
+    if qty < totalReal:
         qty += 1
         total -= 1
         totalLabel.configure(text=f"Total: {total}")
@@ -59,8 +63,8 @@ def confirmar():
     global total
     global preco
     global totalReal
-    diferenca = totalReal - total
-    addVend(diferenca * preco)
+    global qty
+    addVend(qty * preco)
     for i in ListaProdutos:
         if i.nome == name:
             i.estoque = total
@@ -69,6 +73,12 @@ def confirmar():
     fresh(ListaProdutos)
     jc.withdraw()
     fecharAdd()
+
+def listinha():
+    nomes = []
+    for i in ListaProdutos:
+        nomes.append(i.nome)
+    return nomes
 
 jc = CriarJanela("Gerenciar estoque", "600x400", 2)
 titulo1 = CriarLabel(jc, "Gerenciar estoque",0,6)
@@ -84,4 +94,6 @@ pb.grid(sticky="W")
 pb.set(value=1)
 totalLabel = CriarLabel(jc,f"Total: {total}",12,7)
 confirma = CriarBotão(jc, "Confirmar", confirmar, 8,6,80,20)
+cb = CriarComboBox(jc, 150, 20,listinha(), 2, 6)
+cb.configure(command=getTotal)
 jc.mainloop()
