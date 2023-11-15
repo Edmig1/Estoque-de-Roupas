@@ -1,5 +1,11 @@
 from modulo import *
 from ClasseProduto import *
+import matplotlib.pyplot as plt
+import numpy as np
+
+from matplotlib.backends.backend_tkagg import (
+    FigureCanvasTkAgg,
+)
 
 tk.set_appearance_mode("Light")
 tk.set_default_color_theme('themes/violet.json')
@@ -219,6 +225,42 @@ def precoOrg ():
                 ll.remove(j)
     fresh(secondL)
 
+#add grafic
+def atualizaGrafic ():
+    figura = plt.Figure(figsize=(8,4), dpi=70)
+    ax = figura.add_subplot(111)
+
+    canva = FigureCanvasTkAgg(figura, graficos)
+    canva.get_tk_widget().grid(row=6, column=0)
+
+    data = {}
+    dataComp = {}
+
+    for i in ListaProdutos:
+        data[i.nome] = i.vendas
+        dataComp[i.nome] = i.compras
+
+    product = data.keys()
+    vend = data.values()
+
+    ax.bar(product,vend)
+    ax.set_title('vendas por produto')
+
+    #-----other grafic---
+    figura2 = plt.Figure(figsize=(8, 4), dpi=70)
+    ax2 = figura2.add_subplot(111)
+
+    canva2 = FigureCanvasTkAgg(figura2, graficos)
+    canva2.get_tk_widget().grid(row=6, column=12)
+
+    productComp = dataComp.keys()
+    compr = dataComp.values()
+
+    ax2.bar(productComp, compr)
+    ax2.set_title('compras por produto')
+
+
+
 #var -------------------------------------------------------------------------
 larg = 1920
 alt = 1080
@@ -255,7 +297,9 @@ infoCampo.configure(fg_color=backColor)
 atualizaTops()
 
 #gráficos
-#graficos = CriarFrame(janela4, 2, 0, larg, 300)
+graficos = CriarFrame(janela4, 2, 0, larg, 300)
+graficos.configure(fg_color='#ffffff')
+atualizaGrafic()
 
 #tabela
 tabela = CriarFrame(janela4, 3, 0, larg - 680, 320)

@@ -58,18 +58,22 @@ def confirmar():
     from Tela4 import fecharAdd
     from Tela4 import atualizaTops
     from Tela4 import fresh
+    from Tela4 import atualizaGrafic
     global objeto
     global total
     global name
     global preco
+    global qty
     addComp(preco * total)
 
     for i in ListaProdutos:
         if i.nome == name:
             i.estoque = total
+            i.compras = qty
             break
 
     atualizaTops()
+    atualizaGrafic()
     fresh(ListaProdutos)
     janelinha.withdraw()
     fecharAdd()

@@ -5,6 +5,8 @@ class ClasseProduto():
         self.desc = desc
         self.estoque = estoque
         self.tipo = tipo
+        self.vendas = 0
+        self.compras = 0
 
 ListaProdutos = []
 quantCompras = 0
