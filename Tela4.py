@@ -297,7 +297,7 @@ infoCampo.configure(fg_color=backColor)
 atualizaTops()
 
 #gráficos
-graficos = CriarFrame(janela4, 2, 0, larg, 300)
+graficos = CriarFrame(janela4, 2, 0, larg, 150)
 graficos.configure(fg_color='#ffffff')
 atualizaGrafic()
 
