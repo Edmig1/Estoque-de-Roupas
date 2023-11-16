@@ -3,6 +3,7 @@ import time
 import customtkinter as tk
 from Modulos import *
 from BDTemp import *
+from ClasseProduto import *
 
 tk.set_appearance_mode("Light")
 tk.set_default_color_theme("themes/violet.json")
@@ -10,14 +11,16 @@ tk.set_default_color_theme("themes/violet.json")
 
 def AlterarTema():
     if SwTemas.get()==1:
-        tk.set_appearance_mode("dark")
+        mudatema()
+        tk.set_appearance_mode(GetTema())
         Titulo.configure(text_color="white")
         check.configure(text_color="white")
         imageFrame.configure(fg_color="#161515")
         contentFrame.configure(fg_color=janela.cget("bg"))
 
     else:
-        tk.set_appearance_mode("light")
+        mudatema()
+        tk.set_appearance_mode(GetTema())
         Titulo.configure(text_color="black")
         check.configure(text_color="black")
         imageFrame.configure(fg_color="#F6F4F4")
@@ -96,12 +99,6 @@ def LimparCax():
    Cx_Cad_Nome.delete(0,"end")
    Cx_Cad_CPF.delete(0,"end")
    Cx_Cad_DataNas.delete(0,"end")
-
-
-   caixas_texto = [Cx_Cad_ConfSenha, Cx_Cad_Senha, Cx_Cad_Login, Cx_Cad_Nome, Cx_Cad_CPF, Cx_Cad_DataNas]
-   for cx in caixas_texto:
-       cx.delete(0, "end")
-
 
    Cb_Cad_Genero.set("Selecione")
 

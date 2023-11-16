@@ -56,6 +56,24 @@ def alteraEs (add):
 def voltaTotalEsp ():
     global maxEstoque
     return maxEstoque
+tema = 'light'
+cor = '#EBEBEB'
+def mudatema():
+    global tema
+    global cor
+    if tema == 'light':
+        tema = 'dark'
+        cor = '#242424'
+    else:
+        tema = 'light'
+        cor = '#EBEBEB'
+def GetTema():
+    global tema
+    return tema
+def GetCor():
+    global cor
+    return cor
+
 
 
 camisa = ClasseProduto('camisa', 10, 'uma camisa', 15, 'Camiseta')

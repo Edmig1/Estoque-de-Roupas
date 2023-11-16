@@ -39,7 +39,7 @@ def open4():
     abrir4()
 
 
-tk.set_appearance_mode("Light")
+tk.set_appearance_mode(GetTema())
 
 tk.set_default_color_theme('themes/violet.json')
 
@@ -49,7 +49,7 @@ framet2 = CriarFrame(janela2,5,6,700,250)
 
 framet2_2 = CriarFrame(janela2,0,0,1920,80)
 
-framet2_2.configure(fg_color='#EBEBEB')
+framet2_2.configure(fg_color= GetCor())
 
 imagem = CriarImagem(framet2_2,'BelleGlamour.png',6,0,100,400)
 

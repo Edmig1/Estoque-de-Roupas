@@ -7,7 +7,7 @@ from matplotlib.backends.backend_tkagg import (
     FigureCanvasTkAgg,
 )
 
-tk.set_appearance_mode("Light")
+tk.set_appearance_mode(GetTema())
 tk.set_default_color_theme('themes/violet.json')
 
 def abrir4 ():
@@ -109,7 +109,9 @@ def atualizaTops ():
     intesInfoE.configure(fg_color=backColor, border_color=borderColor, border_width=2)
 
     estoInf = CriarBotão(intesInfoE, f'estoque em: {calcSpace()}%', mudaEstoque, 6, 2, largQuad - 20, 50)
-    estoInf.configure(font=('inter', 20), fg_color=backColor, text_color='black')
+    estoInf.configure(font=('inter', 20), fg_color=backColor)
+    if GetTema() == 'light':
+        estoInf.configure(text_color='black')
 
     itensImg = CriarFrame(itensEstoque, 5, 0, 108, 30)
     itensImg.configure(fg_color=principalColor)
@@ -264,7 +266,7 @@ def atualizaGrafic ():
 #var -------------------------------------------------------------------------
 larg = 1920
 alt = 1080
-backColor = '#EBEBEB'
+backColor = GetCor()
 borderColor = '#000000'
 principalColor = '#7C63A6'
 
@@ -298,7 +300,7 @@ atualizaTops()
 
 #gráficos
 graficos = CriarFrame(janela4, 2, 0, larg, 150)
-graficos.configure(fg_color='#ffffff')
+graficos.configure(fg_color= GetCor())
 atualizaGrafic()
 
 #tabela

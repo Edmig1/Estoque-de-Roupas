@@ -2,7 +2,7 @@ from modulo import *
 from ClasseProduto import *
 import customtkinter as tk
 
-tk.set_appearance_mode("Light")
+tk.set_appearance_mode(GetTema())
 tk.set_default_color_theme('themes/violet.json')
 
 quant = 0
