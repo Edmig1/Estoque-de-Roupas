@@ -126,46 +126,34 @@ def Cadastrar():
 ###########   Tela de Cadastro   ###########
 # Login
 Lb_Cad_Login = CriarLabel(Abas_Login.tab("Cadastro"),"Login:",0,5)
-Lb_Cad_Login.grid(sticky = "S")
 Cx_Cad_Login = CriarCaixaDeTexto(Abas_Login.tab("Cadastro"),150,30,0,6,"Login")
-Cx_Cad_Login.grid(sticky = "S")
 
 
 # Nome
 Lb_Cad_Nome = CriarLabel(Abas_Login.tab("Cadastro"), "Nome:", 1, 5)
-Lb_Cad_Nome.grid(sticky="S")
 Cx_Cad_Nome = CriarCaixaDeTexto(Abas_Login.tab("Cadastro"), 150, 30, 1, 6, "Nome")
-Cx_Cad_Nome.grid(sticky="S")
 
 # CPF
 Lb_Cad_CPF = CriarLabel(Abas_Login.tab("Cadastro"), "CPF:", 2, 5)
-Lb_Cad_CPF.grid(sticky="S")
 Cx_Cad_CPF = CriarCaixaDeTexto(Abas_Login.tab("Cadastro"), 150, 30, 2, 6, "CPF", Modo="CPF")
-Cx_Cad_CPF.grid(sticky="S")
 
 # Gênero
 Lb_Cad_Genero = CriarLabel(Abas_Login.tab("Cadastro"), "Gênero:", 3, 5)
-Lb_Cad_Genero.grid(sticky="S")
 Cb_Cad_Genero = CriarComboBox(Abas_Login.tab("Cadastro"), 150, 30, ["Masculino", "Feminino", "Outro"], 3, 6, )
-Cb_Cad_Genero.grid(sticky="S")
 
 # Data de Nascimento
 Lb_Cad_DataNas = CriarLabel(Abas_Login.tab("Cadastro"), "Data de \nNascimento:", 4, 5)
-Lb_Cad_DataNas.grid(sticky="S")
 Cx_Cad_DataNas = CriarCaixaDeTexto(Abas_Login.tab("Cadastro"), 150, 30, 4, 6, "Data de nascimento", Modo="Data")
-Cx_Cad_DataNas.grid(sticky="S")
 
 # Senha
 Lb_Cad_Senha = CriarLabel(Abas_Login.tab("Cadastro"), "Senha: ", 5, 5)
-Lb_Cad_Senha.grid(sticky="S")
 Cx_Cad_Senha = CriarCaixaDeTexto(Abas_Login.tab("Cadastro"), 150, 30, 5, 6, "Senha", Modo="Senha")
-Cx_Cad_Senha.grid(sticky="S")
+
 
 # Confirmar Senha
 Lb_Cad_ConfSenha = CriarLabel(Abas_Login.tab("Cadastro"), "Confirme sua senha: ", 6, 5)
-Lb_Cad_ConfSenha.grid(sticky="S")
 Cx_Cad_ConfSenha = CriarCaixaDeTexto(Abas_Login.tab("Cadastro"), 150, 30, 6, 6, "Confirmação", Modo="Senha")
-Cx_Cad_ConfSenha.grid(sticky="S")
+
 
 # Mensagem de Erro
 Lb_Cad_Erro = CriarLabel(Abas_Login.tab("Cadastro"), " ", 7, 0)
